@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const NewQuote = () => {
 	return (
-		<div>
+		<Fragment>
 			<h1>New Quote page</h1>
-		</div>
+		</Fragment>
 	);
 };
 

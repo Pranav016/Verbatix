@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { useParams, Route, Switch } from 'react-router-dom';
+import Comments from '../components/comments/Comments';
 
 const QuoteDetail = () => {
+	const params = useParams();
+
 	return (
-		<div>
+		<Fragment>
 			<h1>Quote Detail page</h1>
-		</div>
+			<p>{params.quoteId}</p>
+			<Switch>
+				<Route to={`/quotes/${params.quoteId}/comments`} exact>
+					<Comments />
+				</Route>
+			</Switch>
+		</Fragment>
 	);
 };
 

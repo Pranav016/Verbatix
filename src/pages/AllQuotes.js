@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const AllQuotes = () => {
 	return (
-		<div>
+		<Fragment>
 			<h1>All Quotes page</h1>
-		</div>
+		</Fragment>
 	);
 };
 
