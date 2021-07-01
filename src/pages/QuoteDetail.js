@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react';
-import { useParams, Route, Switch } from 'react-router-dom';
+import { useParams, Route, Link, useRouteMatch } from 'react-router-dom';
 import Comments from '../components/comments/Comments';
 import { Dummy_quotes } from './AllQuotes';
 import HighlightedQuote from '../components/quotes/HighlightedQuote';
 
 const QuoteDetail = () => {
 	const params = useParams();
+	const match = useRouteMatch();
+	console.log(match);
 	const selectedQuote = Dummy_quotes.find(
 		(quote) => quote.id === params.quoteId
 	);
@@ -21,12 +23,16 @@ const QuoteDetail = () => {
 				text={selectedQuote.text}
 				author={selectedQuote.author}
 			/>
-
-			<Switch>
-				<Route to={`/quotes/${params.quoteId}/comments`} exact>
-					<Comments />
-				</Route>
-			</Switch>
+			<Route path={`${match.path}`} exact>
+				<div className='centered'>
+					<Link className='btn--flat' to={`${match.url}/comments`}>
+						Load comments
+					</Link>
+				</div>
+			</Route>
+			<Route path={`${match.path}/comments`}>
+				<Comments />
+			</Route>
 		</Fragment>
 	);
 };
