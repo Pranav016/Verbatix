@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 const FIREBASE_DOMAIN = process.env.REACT_APP_FIREBASE_KEY;
-console.log(process.env.REACT_APP_FIREBASE_KEY);
 
 export async function getAllQuotes() {
 	const response = await fetch(`${FIREBASE_DOMAIN}/quotes.json`);
